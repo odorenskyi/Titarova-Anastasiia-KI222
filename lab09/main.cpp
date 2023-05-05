@@ -1,29 +1,65 @@
 #include <iostream>
+#include <Windows.h>
 
 using namespace std;
 
-int main() {
-    int population, deaths, births, arrivals, departures;
-
-    cout << "Enter the population of the region on January 1: ";
-    cin >> population;
-
-    cout << "Enter the number of deaths from January 1 to present day: ";
-    cin >> deaths;
-
-    cout << "Enter the number of births from January 1 to present day: ";
-    cin >> births;
-
-    cout << "Enter the number of arrivals from January 1 to present day: ";
-    cin >> arrivals;
-
-    cout << "Enter the number of departures from January 1 to present day: ";
-    cin >> departures;
-
-    population += births - deaths + arrivals - departures;
-
-    cout << "The current population of the region is " << population;
-    cout << "The change in population from January 1 to present day is " << (population - arrivals + departures - deaths - births);
-
-    return 0;
+void s_calculation() {
 }
+
+void task_9_1() {
+}
+
+void task_9_2() {
+}
+
+int count_zeros(int n) {
+    int count = 0;
+    while (n > 0) {
+        if ((n & 1) == 0) {
+            count++;
+        }
+        n >>= 1;
+    }
+    return count;
+}
+
+void task_9_3() {
+    int n;
+    cout << "Enter a natural number between 0 and 500700: ";
+    cin >> n;
+    int d1 = (n & 1);
+    int num_zeros = (d1 == 0) ? count_zeros(n) : 32 - count_zeros(n);
+    cout << "Number of binary zeros: " << num_zeros << endl;
+}
+
+int main() {
+    char input;
+    do {
+        cout << "Enter 'd' for s_calculation, 'g' for task 9.1, 'h' for task 9.2, or 'j' for task 9.3: ";
+        cin >> input;
+        switch (input) {
+            case 'd':
+                s_calculation();
+                break;
+            case 'g':
+                task_9_1();
+                break;
+            case 'h':
+                task_9_2();
+                break;
+            case 'j':
+                task_9_3();
+                break;
+            case 'k':
+            case 'K':
+            case 'ê':
+                cout << "Exiting program..." << endl;
+                return 0;
+            default:
+                Beep(500, 500);
+                break;
+        }
+    } while (true);
+}
+
+
